@@ -6,8 +6,8 @@ const Header = () => {
     <header>
       <nav>
         <div className="navbar justify-between bg-base-300">
-          <Link href="/" className="btn btn-ghost text-lg capitalize">
-            asempa brand
+          <Link href="/" className="btn btn-ghost text-lg">
+            <h1 className="capitalize">asempa brand</h1>
           </Link>
 
           <ul className="flex">
@@ -16,7 +16,7 @@ const Header = () => {
                 href="/cart"
                 className="btn btn-ghost rounded-btn capitalize"
               >
-                cart
+                <h4 className="capitalize">cart</h4>
               </Link>
             </li>
 
@@ -25,7 +25,7 @@ const Header = () => {
                 href="/signin"
                 className="btn btn-ghost rounded-btn capitalize"
               >
-                signin
+                <h4 className="capitalize">signin</h4>
               </Link>
             </li>
           </ul>
