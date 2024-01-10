@@ -26,7 +26,7 @@ export default function ProductItem({ product }: { product: Product }) {
         <p className="mb-2">{product.brand}</p>
 
         <div className="card-actions flex items-center justify-between">
-          <span className="text-2xl">&#x20B5; {product.price}</span>
+          <span className="text-2xl">$ {product.price}</span>
         </div>
       </div>
     </div>
