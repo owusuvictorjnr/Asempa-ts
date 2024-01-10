@@ -46,6 +46,27 @@ export default function useCartService() {
         totalPrice,
       })
     }, //this line add or increase items in the cart
+
+    // this line remove or decrease items in the cart
+    decrease: (item: OrderItem) => {
+      const exist = items.find((x) => x.slug === item.slug)
+      if (!exist) return
+
+      const updatedCartItems =
+        exist.qty === 1
+          ? items.filter((x: OrderItem) => x.slug !== item.slug)
+          : items.map((x) => (item.slug ? { ...exist, qty: exist.qty - 1 } : x))
+
+      const { itemsPrice, shippingPrice, totalPrice } =
+        calcuPrice(updatedCartItems)
+
+      cartStore.setState({
+        items: updatedCartItems,
+        itemsPrice,
+        shippingPrice,
+        totalPrice,
+      })
+    },
   }
 }
 
