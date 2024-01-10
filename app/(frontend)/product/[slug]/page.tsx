@@ -1,3 +1,4 @@
+import AddToCart from '@/components/products/AddToCart'
 import data from '@/lib/data'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -62,7 +63,7 @@ export default function ProductDetails({
             <div className="card-body">
               <div className="mb-2 flex justify-between">
                 <div className="capiptalize">price</div>
-                <div className="">&#x20B5; {product.price}</div>
+                <div className="">$ {product.price}</div>
               </div>
 
               <div className="mb-2 flex justify-between">
@@ -72,11 +73,14 @@ export default function ProductDetails({
                 </div>
               </div>
 
-              <div className="card-actions justify-center">
-                <button className="btn btn-primary w-full" type="button">
-                  Add to cart
-                </button>
-              </div>
+              {/* Add to cart */}
+              {product.countInStock !== 0 && (
+                <div className="card-actions justify-center">
+                  <AddToCart
+                    item={{ ...product, qty: 0, color: '', size: '' }}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
